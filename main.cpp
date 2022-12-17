@@ -142,8 +142,40 @@ void testCompare2(){
     auto end_2 = clock();
     cout<<"Thoi gian chay chuong trinh 2: "<<(double)(end_2-start_2)/CLOCKS_PER_SEC<<"(s)\n";;
 }
+void testCompare3(){
+    AVLTree <int> AVLtree;
+    RedBlackTree<int>RedBlacktree;
+    for (int i = 0; i<7; i++){
+        RedBlacktree.insert(i);
+        AVLtree.insert(i);
+    }
+    RedBlacktree.display(); cout<<endl;
+    AVLtree.display();
+}
+void testCompare4AVLTree(){
+    AVLTree <int> AVLtree;
+    for (int i = 1; i<=7; i++){
+        AVLtree.insert(i);
+    }
+    for (int i = 0; i<20; i++){
+        AVLtree.search(i);
+    }
+}
+void testCompare4RedBlackTree(){
+    RedBlackTree <int> RedBlacktree;
+    for (int i = 1; i<=7; i++){
+        RedBlacktree.insert(i);
+    }
+    for (int i = 0; i<20; i++){
+        RedBlacktree.search(i);
+    }
+}
+void testCompare4(){
+    timeCount(testCompare4AVLTree);
+    timeCount(testCompare4RedBlackTree);
+}
 
 int main(){
-    testCompare1();
+    testCompare4();
     return 0;
 }

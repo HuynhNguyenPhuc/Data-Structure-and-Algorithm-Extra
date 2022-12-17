@@ -121,6 +121,31 @@ public:
         if (nums == 0) root = nullptr;
     }
 
+    bool searchRec(Node* node, T value){
+        if (!node) return false;
+        if (value<node->data) return searchRec(node->left, value);
+        else if (value>node->data) return searchRec(node->right, value);
+        else return true;
+    }
+
+    bool search (T value){
+        return searchRec(root, value);
+    }
+
+    void displayRec(Node* node, int space) {
+        if (!node) return;
+        space += 10;
+        displayRec(node->right, space);
+        cout << endl;
+        for (int i = 10; i < space; i++) cout<<" ";
+        cout<<node->data<<endl; 
+        displayRec(node->left, space);
+    }
+
+    void display() {
+        displayRec(root, 0);
+    }
+    
     int size() const{
         return nums;
     }
